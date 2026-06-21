@@ -1,0 +1,17 @@
+# Render Blueprint — deploys the take-home API as a free Web Service.
+# Connect this repo at https://dashboard.render.com/blueprints and Render will
+# create the service automatically.
+services:
+  - type: web
+    name: users-roles-api
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    # Bridge Render's $PORT to the server's SERVER_PORT env var so we don't
+    # have to alter `server/src/api.ts` (the brief says not to).
+    startCommand: SERVER_PORT=$PORT npm run api
+    envVars:
+      - key: SERVER_SPEED
+        value: fast
+    healthCheckPath: /users

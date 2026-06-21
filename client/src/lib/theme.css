@@ -1,0 +1,109 @@
+@import '@radix-ui/themes/styles.css';
+
+/* Tell Radix Themes to use Hanken Grotesk (loaded via index.html <link>) */
+.radix-themes {
+  --default-font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    sans-serif;
+  --heading-font-family: var(--default-font-family);
+  --code-font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mute prefers-reduced-motion across our custom animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* App-level utility classes for the few things Radix Themes doesn't already cover. */
+
+/* Top progress bar that appears on the table card during background refetches */
+.table-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  overflow: hidden;
+  border-top-left-radius: var(--radius-3);
+  border-top-right-radius: var(--radius-3);
+  pointer-events: none;
+}
+.table-progress::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--accent-9) 50%,
+    transparent 100%
+  );
+  animation: progress-slide 1.4s ease-in-out infinite;
+}
+@keyframes progress-slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Row enter/exit on optimistic delete */
+.row-leave {
+  animation: row-leave 150ms ease-out forwards;
+}
+@keyframes row-leave {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+/* Button press feedback */
+button:not([disabled]):not([aria-disabled='true']) {
+  transition: transform 80ms ease-out;
+}
+button:not([disabled]):not([aria-disabled='true']):active {
+  transform: scale(0.97);
+}
+
+/* Subtle clear-button slide-in for SearchInput */
+.search-clear {
+  animation: clear-slide-in 120ms ease-out;
+}
+@keyframes clear-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

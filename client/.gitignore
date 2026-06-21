@@ -1,0 +1,13 @@
+node_modules
+dist
+dist-ssr
+*.local
+.env
+.env.local
+.env.*.local
+coverage
+.vite
+src/routeTree.gen.ts
+*.tsbuildinfo
+.DS_Store
+*.log
