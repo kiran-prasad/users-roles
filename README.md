@@ -8,8 +8,8 @@ A two-tab admin UI for managing users and roles, built against the provided Expr
 
 ## Live demo
 
-- **Web app**: <https://users-roles.vercel.app> &nbsp;_(replace after first Vercel deploy)_
-- **API**: <https://users-roles-api.onrender.com> &nbsp;_(replace after first Render deploy; first request after idle may take ~30s to wake the free tier)_
+- **Web app**: <https://users-roles.vercel.app>
+- **API**: <https://users-roles-api.onrender.com> &nbsp;_(first request after idle may take ~30s to wake the free Render tier)_
 
 ## How to run
 
