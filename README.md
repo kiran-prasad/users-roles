@@ -117,6 +117,7 @@ A `routeTree.gen.ts` regen step is included in `npm run build`, so a clean Verce
 
 - **License Untitled Sans** so the typography is pixel-faithful to the design.
 - **Avatar upload on Add user.** Today the form captures first / last / role only — newly created users get whatever random `pravatar` URL `POST /users` assigns on the server side. A real implementation would add an avatar field (file upload or URL) with a backend endpoint that handles storage, plus inline cropping + the existing initials fallback for the empty state.
+- **Adopt react-hook-form + Zod for form orchestration.** The Add/Edit dialogs are intentionally hand-rolled with `useState` because each form has three fields and one validation rule. The choreography for `aria-invalid`, "anything changed yet," and server-error rendering stays manageable at this scale. RHF starts paying for itself once forms grow conditional fields, async validation, array fields, or cross-field rules — for this codebase that means once Add user gets an avatar upload or role permissions become a multi-select. RHF pairs naturally with the Zod we already use for route search params, so both can share schemas.
 - **Server-side sort** + clickable column headers.
 - **Virtualized table** for 1k+ rows (TanStack Table + react-virtual).
 - **Playwright E2E** covering the search → edit → delete flow against the real server.
