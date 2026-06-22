@@ -4,7 +4,7 @@ A two-tab admin UI for managing users and roles, built against the provided Expr
 
 [![CI](https://github.com/kiran-prasad/users-roles/actions/workflows/ci.yml/badge.svg)](https://github.com/kiran-prasad/users-roles/actions/workflows/ci.yml)
 
-> Hero screenshot — capture `http://localhost:5173` once both servers are running and add it at `client/public/hero.png`, then reference it here.
+![Users tab screenshot](client/public/hero.png)
 
 ## Live demo
 
